@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        String str = "I love java language";
+        String[] words = str.split("\\s");
+        int i = 0;
+        int len[] = new int[words.length];
+        
+        while (i < words.length) {
+            len[i] = strlength(words[i]);
+            if (len[i] % 2 == 0) {
+                System.out.println(words[i]);
+            }
+            i++;
+        }
+    }
+
+    public static int strlength(String str) {
+        return str.length();
+    }
+}
