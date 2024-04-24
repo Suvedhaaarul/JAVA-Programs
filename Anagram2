@@ -1,0 +1,25 @@
+import java.util.Arrays;
+public class Main
+{
+	public static void main(String[] args) {
+		String str1="INTEGER";
+		String str2="TEGERNT";
+		System.out.println(isAnagram(str1,str2));
+	}
+	public static boolean isAnagram(String str1, String str2){
+	    if((str1.length()!=str2.length())){
+	        return false;
+	    }
+	    str1 = sortString(str1);
+	    str2 = sortString(str2);
+	    if(str1.equals(str2)){
+	        return true;
+	    }
+	    return false;
+	}
+	public static String sortString(String str){
+	    char c[] = str.toCharArray();
+	    Arrays.sort(c);
+	    return new String(c);
+	}
+}
