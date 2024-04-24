@@ -1,0 +1,33 @@
+public class Main
+{
+	public static void main(String[] args) {
+		int arr[] = {1,2,3,4,5,6,7};
+		int ele = 5;
+		int ans = Binarysearch(arr,ele);
+	    if(ans == -1){
+	        System.out.println("Element not found");
+	    }
+	    else{
+	        System.out.println("Element found at "+ans);
+	    }
+	}
+	public static int Binarysearch(int arr[],int x){
+	    int len = arr.length;
+	    int low = 0;
+	    int high = len-1;
+	    
+	    while(low<=high){
+	        int mid = (low+high)/2;
+	        if(x == arr[mid]){
+	            return mid;
+	        }
+	        else if(x < arr[mid]){
+	            high = mid-1;
+	        }
+	        else{
+	            low = mid+1;
+	        }
+	    }
+	    return -1;
+	}
+}
