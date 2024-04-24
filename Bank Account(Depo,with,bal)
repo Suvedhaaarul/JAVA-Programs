@@ -1,0 +1,63 @@
+package Oops;
+import java.util.Scanner;
+public class Bank {
+    float amount;
+    int accno;
+    String name;
+    float balance;
+    void insert(int a,String n, float bal){
+        accno = a;
+        name = n;
+        balance = bal;
+        System.out.println(accno +" "+name+" "+balance);
+    }
+    void withdrawan(float amt){
+        if(amt>balance){
+            System.out.println("Insufficient Balance");
+        }
+        else {
+            balance = balance - amt;
+            System.out.println(amt + " " + "withdrawn");
+        }
+    }
+    void deposit(float amot){
+        balance = balance + amot;
+        System.out.println(amot +" "+ "deposited");
+    }
+    void checkBalance(){
+        System.out.println("Balance is: " + balance);
+    }
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter account details: (Accno, Name, Balance)");
+        int accno = sc.nextInt();
+        String name = sc.next();
+        float bal = sc.nextInt();
+        Bank b1 = new Bank();
+        b1.insert(accno,name,bal);
+        int i=0;
+        while(i==0) {
+            System.out.println("Select Deposit(1), withdraw(2), checkBalance(3)  and exit(4)");
+            int selection = sc.nextInt();
+            if (selection == 1) {
+                System.out.println("Enter amount");
+                int amount = sc.nextInt();
+                b1.deposit(amount);
+            }
+            else if(selection ==2){
+                System.out.println("Enter amount");
+                int amount = sc.nextInt();
+                b1.withdrawan(amount);
+            }
+            else if(selection ==3){
+                b1.checkBalance();
+            }
+            else if(selection ==4) {
+                break;
+            }
+            else{
+                System.out.println("give correct option");
+            }
+        }
+    }
+}
