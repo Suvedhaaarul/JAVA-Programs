@@ -1,0 +1,23 @@
+import java.util.ArrayList;
+public class Main
+{
+    static ArrayList <String> list = new ArrayList<>();
+    public static void main(String[] args) {
+        int n=2;
+        generate(n,0,0,"");
+        System.out.println(list);
+    }
+    public static ArrayList<String> generate(int n, int open, int close, String ans){
+        if(open==n&&close==n){
+            list.add(ans);
+            return list;
+        }
+        if(open>n||close>n)
+            return list;
+        generate(n,open+1,close,ans+"(");
+        if(close<open){
+            generate(n,open,close+1,ans+")");
+        }
+        return list;
+    }
+}
